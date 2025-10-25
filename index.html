@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Projects</title>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #041f34;
+      color: white;
+      margin: 0;
+      padding: 60px 20px;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 26px;
+      color: #d8eaff;
+      border-bottom: 2px solid #47b5ff;
+      display: inline-block;
+      padding-bottom: 4px;
+      margin-bottom: 15px;
+    }
+
+    a {
+      display: block;
+      color: #ffffff;
+      text-decoration: none;
+      position: relative;
+      margin: 20px;
+      font-size: 18px;
+      
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    a:hover {
+      color: #47b5ff;
+      transform: scale(1.03);
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      justify-items: center;
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section {
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 14px;
+      color: #aab8c2;
+      opacity: 0.8;
+    }
+
+    img {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.15;
+      filter: blur(3px);
+    }
+  </style>
+</head>
+
+<body>
+  <img src="78051.jpg" alt="background">
+
+  <h1>Welcome to My Repository</h1>
+
+  <div class="grid-container">
+    <div class="section">
+      <h2>Web Projects</h2>
+      <a href="#">React Project</a>
+      <a href="calculator/index.html" target="_blank"> Minimalistic Calculator </a>
+      <a href="#">Password Generator </a>
+      <a href="#"> QR Code Generator </a>
+    </div>
+
+    <div class="section">
+      <h2>Dashboards</h2>
+      <a href="https://app.powerbi.com/groups/me/reports/9398ca71-e18d-4dbe-ab6f-f4baf436616e"
+         target="_blank"> Netflix Dashboard </a>
+      <a href="#"> Dashboard 2 </a>
+    </div>
+  </div>
+
+  <div class="grid-container" style="margin-top: 50px;">
+    <div class="section">
+      <h2>Certificates</h2>
+      <a href="certificates/Data Analysis Udemy Certificate.jpg">Data Analysis with SQL, Tableau, Power BI & Excel<br>(Udemy,2025)</a>
+      <a href="certificates/Cisco Cyber Security Certificate.png">Introduction to Cybersecurity<br>(Cisco Networking Academy,2025)</a>
+       <a href="certificates/IBM PBEL Certificate.png">PBEL-Web, Mobile Development & Marketing<br>(IBM,2025)</a>
+    </div>
+
+    <div class="section">
+      <h2>Profile Links</h2>
+      <a href="https://www.linkedin.com/in/prakhar-srivastava-384696338/" target="_blank">Linkedin</a>
+      <a href="https://www.hackerrank.com/profile/CSB_22B0121124" target="_blank">Hackerrank</a>
+      <a href="https://leetcode.com/u/Prakhar0408/" target="_blank">Leetcode</a>
+    </div>
+  </div>
+</body>
+
+</html>
