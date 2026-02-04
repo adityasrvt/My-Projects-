@@ -56,7 +56,7 @@ document.getElementById('createAccountForm').addEventListener('submit', function
     
    
     let bankCode = parseInt(localStorage.getItem('bankCode'));
-    const accountNumber = 'SOI' + bankCode;
+    const accountNumber = 'SBOI' + bankCode;
     localStorage.setItem('bankCode', (bankCode + 1).toString());
     
     
