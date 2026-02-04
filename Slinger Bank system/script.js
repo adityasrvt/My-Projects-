@@ -520,7 +520,7 @@ document.getElementById('updatePhoneForm').addEventListener('submit', function(e
 
 // Download Statement
 document.getElementById('downloadStatement').addEventListener('click', function() {
-    let statement = `TASIN CODER BANK OF INDIA\n`;
+    let statement = `SLINGER CODER BANK OF INDIA\n`;
     statement += `Account Statement\n\n`;
     statement += `Account Holder: ${currentAccount.accountHolderName}\n`;
     statement += `Account Number: ${currentAccount.accountNumber}\n`;

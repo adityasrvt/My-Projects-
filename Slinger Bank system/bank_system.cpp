@@ -143,12 +143,12 @@ void bankAccount::createAccount()   {
     Reset();
 
     balance = 500.0;
-    ifstream file("Tasin-Coder-Bank-Of-India.txt");
+    ifstream file("Slinger-Bank-Of-India.txt");
     if(file.is_open())  {
 
         file>>bankCode;
         file.close();
-        ofstream output("Tasin-Coder-Bank-Of-India.txt");
+        ofstream output("Slinger-Bank-Of-India.txt");
 
         if(output.is_open())    {
 
@@ -264,7 +264,7 @@ void bankAccount::accountDetails() {
     
     Magenta();
     cout<<"|------------------------------|"<<endl;
-    cout<<"|  Tasin Coder Bank Of India   |"<<endl;
+    cout<<"|  Slinger Bank Of India   |"<<endl;
     cout<<"|------------------------------|"<<endl;
     Blue();
 
@@ -298,7 +298,7 @@ int main() {
     int choice;
    
     do {
-        cout<<" Welcome to Tasin Coder Bank Of India" << endl;
+        cout<<" Welcome to Slinger Bank Of India" << endl;
         cout<<"--------------------------------------"<<endl;
         cout << "1. Create Account" << endl;
         cout << "2. Login" << endl;
