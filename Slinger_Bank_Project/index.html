@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SBOI Bank - Slinger Bank Of India</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>🏦 Slinger Bank Of India</h1>
+  <p class="subtitle">Secure Banking at Your Fingertips</p>
+
+  <div class="cards-wrapper">
+    <div class="card">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="loginAccountNumber" placeholder="Account Number" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Create Account</h2>
+      <form id="createAccountForm">
+        <input type="text" id="fullName" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="phone" placeholder="Phone Number" required>
+        <input type="text" id="aadhaar" placeholder="Aadhaar Number" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Account Dashboard (Hidden by default) -->
+  <div id="dashboard" class="dashboard" style="display: none;">
+    <div class="dashboard-header">
+      <h2>Welcome, <span id="accountHolderName"></span>!</h2>
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-tab="overview">Overview</button>
+      <button class="nav-tab" data-tab="cards">My Cards</button>
+      <button class="nav-tab" data-tab="transactions">Transactions</button>
+      <button class="nav-tab" data-tab="settings">Settings</button>
+    </div>
+
+    <!-- Overview Tab -->
+    <div id="overview" class="tab-content active">
+      <div class="balance-card">
+        <h3>Current Balance</h3>
+        <p class="balance-amount">₹<span id="currentBalance">0.00</span></p>
+        <p class="account-info">Account: <span id="accountNumberDisplay"></span></p>
+      </div>
+
+      <div class="cards-wrapper">
+        <div class="card">
+          <h3>💰 Deposit Money</h3>
+          <form id="depositForm">
+            <input type="number" id="depositAmount" placeholder="Amount" step="0.01" required>
+            <button type="submit">Deposit</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>💸 Withdraw Money</h3>
+          <form id="withdrawForm">
+            <input type="number" id="withdrawAmount" placeholder="Amount" step="0.01" required>
+            <button type="submit">Withdraw</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>🔄 Transfer Money</h3>
+          <form id="transferForm">
+            <input type="text" id="transferAccount" placeholder="Recipient Account Number" required>
+            <input type="number" id="transferAmount" placeholder="Amount" step="0.01" required>
+            <button type="submit">Transfer</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>📊 Quick Stats</h3>
+        <div class="quick-stats">
+          <div class="stat-item">
+            <span class="stat-label">Total Deposits</span>
+            <span class="stat-value" id="totalDeposits">₹0.00</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Total Withdrawals</span>
+            <span class="stat-value" id="totalWithdrawals">₹0.00</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Total Transactions</span>
+            <span class="stat-value" id="totalTransactions">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards Tab -->
+    <div id="cards" class="tab-content">
+      <h2 class="section-title">My Cards</h2>
+      
+      <!-- Debit Card -->
+      <div class="credit-card debit-card">
+        <div class="card-type">DEBIT CARD</div>
+        <div class="card-chip">💳</div>
+        <div class="card-number" id="debitCardNumber">**** **** **** ****</div>
+        <div class="card-details">
+          <div>
+            <div class="card-label">Card Holder</div>
+            <div class="card-holder" id="debitCardHolder">NAME</div>
+          </div>
+          <div>
+            <div class="card-label">Expires</div>
+            <div class="card-expiry" id="debitCardExpiry">MM/YY</div>
+          </div>
+          <div>
+            <div class="card-label">CVV</div>
+            <div class="card-cvv">***</div>
+          </div>
+        </div>
+        <div class="card-logo">SBOI</div>
+      </div>
+
+      <div class="cards-wrapper">
+        <div class="card">
+          <h3>🔓 Show Card Details</h3>
+          <form id="showCardForm">
+            <input type="password" id="cardPassword" placeholder="Enter Password" required>
+            <button type="submit">View Full Card Number</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>🔐 Change Card PIN</h3>
+          <form id="changePinForm">
+            <input type="password" id="currentPin" placeholder="Current PIN (4 digits)" maxlength="4" required>
+            <input type="password" id="newPin" placeholder="New PIN (4 digits)" maxlength="4" required>
+            <input type="password" id="confirmPin" placeholder="Confirm New PIN" maxlength="4" required>
+            <button type="submit">Change PIN</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Credit Card -->
+      <h3 style="margin-top: 30px; color: #fff;"></h3>
+      <div class="credit-card credit-card-style">
+        <div class="card-type">CREDIT CARD</div>
+        <div class="card-chip">💳</div>
+        <div class="card-number" id="creditCardNumber">**** **** **** ****</div>
+        <div class="card-details">
+          <div>
+            <div class="card-label">Card Holder</div>
+            <div class="card-holder" id="creditCardHolder">NAME</div>
+          </div>
+          <div>
+            <div class="card-label">Expires</div>
+            <div class="card-expiry" id="creditCardExpiry">MM/YY</div>
+          </div>
+          <div>
+            <div class="card-label">Limit</div>
+            <div class="card-limit" id="creditLimit">₹50,000</div>
+          </div>
+        </div>
+        <div class="card-logo">SBOI PLATINUM</div>
+      </div>
+
+      <div class="card">
+        <h3>💳 Credit Card Usage</h3>
+        <div class="credit-usage">
+          <div class="usage-bar">
+            <div class="usage-fill" id="creditUsageFill" style="width: 0%"></div>
+          </div>
+          <p class="usage-text">Available: ₹<span id="creditAvailable">50,000</span> / ₹50,000</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🆕 Request New Card</h3>
+        <div class="card-request">
+          <button class="secondary-btn" id="requestDebitCard">Request Debit Card Replacement</button>
+          <button class="secondary-btn" id="requestCreditCard">Apply for Credit Card Upgrade</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transactions Tab -->
+    <div id="transactions" class="tab-content">
+      <div class="card transaction-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h3>Transaction History</h3>
+          <button class="secondary-btn" id="downloadStatement">Download Statement</button>
+        </div>
+        <div class="transaction-filters">
+          <select id="filterType">
+            <option value="all">All Transactions</option>
+            <option value="deposit">Deposits Only</option>
+            <option value="withdraw">Withdrawals Only</option>
+            <option value="transfer">Transfers Only</option>
+          </select>
+          <select id="filterPeriod">
+            <option value="all">All Time</option>
+            <option value="today">Today</option>
+            <option value="week">This Week</option>
+            <option value="month">This Month</option>
+          </select>
+        </div>
+        <div id="transactionHistory" class="transaction-list">
+          <p class="no-transactions">No transactions yet</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Tab -->
+    <div id="settings" class="tab-content">
+      <h2 class="section-title">Account Settings</h2>
+      
+      <div class="cards-wrapper">
+        <div class="card">
+          <h3>🔑 Change Password</h3>
+          <form id="changePasswordForm">
+            <input type="password" id="currentPassword" placeholder="Current Password" required>
+            <input type="password" id="newPassword" placeholder="New Password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm New Password" required>
+            <button type="submit">Update Password</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>✉️ Update Email</h3>
+          <form id="updateEmailForm">
+            <input type="email" id="newEmail" placeholder="New Email Address" required>
+            <input type="password" id="emailPassword" placeholder="Password" required>
+            <button type="submit">Update Email</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>📱 Update Phone</h3>
+          <form id="updatePhoneForm">
+            <input type="text" id="newPhone" placeholder="New Phone Number" required>
+            <input type="password" id="phonePassword" placeholder="Password" required>
+            <button type="submit">Update Phone</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>👤 Account Details</h3>
+        <div class="account-details">
+          <p><strong>Account Holder:</strong> <span id="detailsName"></span></p>
+          <p><strong>Account Number:</strong> <span id="detailsNumber"></span></p>
+          <p><strong>Account Type:</strong> <span>Savings Account</span></p>
+          <p><strong>Email:</strong> <span id="detailsEmail"></span></p>
+          <p><strong>Phone:</strong> <span id="detailsPhone"></span></p>
+          <p><strong>Aadhaar:</strong> <span id="detailsAadhaar"></span></p>
+          <p><strong>Account Created:</strong> <span id="accountCreated"></span></p>
+          <p><strong>Account Status:</strong> <span class="status-active">Active ✓</span></p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>⚙️ Preferences</h3>
+        <div class="preferences">
+          <label class="toggle-label">
+            <input type="checkbox" id="emailNotifications" checked>
+            <span>Email Notifications</span>
+          </label>
+          <label class="toggle-label">
+            <input type="checkbox" id="smsNotifications" checked>
+            <span>SMS Notifications</span>
+          </label>
+          <label class="toggle-label">
+            <input type="checkbox" id="transactionAlerts" checked>
+            <span>Transaction Alerts</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="notification" class="notification"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
