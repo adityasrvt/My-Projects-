@@ -7,4 +7,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  base: '/My-Projects-/my-react-app/',   // ⭐ REQUIRED FOR GITHUB PAGES
 })
