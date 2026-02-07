@@ -1,0 +1,2236 @@
+@import "tailwindcss";
+@font-face {
+    font-family: 'Mayrean';
+    src: url('./assets/Mayrean-Personal-Use-Only.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'blackout';
+    src: url('./assets/BlackoutOldskull.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    min-height: 100%;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+   
+}
+
+#root {
+    min-height: 100vh;
+    max-width: 100%;
+}
+
+.navigation{
+    display:flex;
+    margin: 10px;
+    justify-content: right;
+    margin-top: 30px;
+    margin-right: 30px;
+    
+}
+.navigation a{
+    color: white;
+    padding: 10px;
+    font-family: 'Mayrean', Montserrat, sans-serif;
+    text-decoration: none;
+    display:inline-block;
+    position: relative;
+    font-weight: 200;
+    font-size: 1.2em;
+}
+.navigation a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0px;     /* space between text and underline */
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: cyan;
+    transition: width 0.3s ease;
+}
+
+/* hover states */
+.navigation a:hover {
+    color: cyan;
+    cursor: pointer;
+}
+
+.navigation a:hover::after {
+    width: 100%;      /* expands left + right */
+}
+
+.bannerheading {
+    text-align: left;
+    margin-left: 10%;
+    top: 50px;
+    position: relative;
+    color: white;
+    
+}
+
+.bannerheading h1 {
+    font-family: 'Mayrean', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 3em;
+    color: cyan;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.bannerheading p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+    font-size: 1em;
+    font-weight: 200;
+    color: white;
+    width: 80%;
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+
+.slider-container {
+    margin-top: 30px; 
+    width: 90%;
+    max-width: 100%;
+}
+@media screen and (max-width:768px){
+    .bannerheading h1{
+        font-size:2em;
+    }
+    .bannerheading p{
+        font-size: 0.7em;
+        padding-right: 10px;
+    }
+    .navigation a{
+        font-size: 1em;
+    }
+    
+}
+
+.slide-content {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0;
+    text-align: center;
+    border-radius: 10px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-content h3 {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+
+.buttonhome1 {
+    display: flex;
+    justify-content: center;
+    right: 5%;
+    margin-top: 40px;
+    position: relative;
+}
+
+
+.homebutton{
+    padding: 10px;
+    border-radius: 3px;
+    font-family: 'Mayrean';
+    font-size: 20px;
+    color:black;
+    background-color: white;
+    border:2px solid white;
+    margin-bottom: 20px;
+}
+.homebutton:hover{
+    color:white;
+    background-color: black;
+    transition: ease 0.3s;
+}
+.slide-img{
+    height: 300px;
+    width:100%;
+    object-fit: cover;
+}
+.imgdiv{
+    margin-top: 50px;
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.imgdiv h2{
+    color: cyan;
+    font-family: 'Mayrean';
+    position: relative;
+    display: flex;
+    align-items: center;
+    right:50px;
+    top:-30px;
+    font-size:35px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    
+}
+.prdimg{
+    height: 200px;
+    width: auto;
+    border:2px solid cyan;
+    border-radius: 5px;
+    margin:30px;
+    margin-top:10px;
+}
+.prdimg:hover{
+    transform: scale(1.1);
+    transition: ease-in-out 0.2s;
+}
+@media screen and (max-width:768px){
+    .prdimg{height: 150px;
+    margin:15px;}
+}
+.cartlogin{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.login{
+    filter: invert(1);
+    height: 42px;
+    width: auto;
+    margin-top: 30px;
+    padding: 8px;
+    border-radius: 50%;
+    
+}
+.login:hover{
+    background-color: cyan;
+    filter: invert(0);
+    transform: scale(1.2);
+    transition: ease-in-out 0.2s;
+    
+}
+.imgdiv h1{
+    color: white;
+    z-index: 1000;
+    font-size: 20px;
+    margin-bottom: 20px;
+    bottom: 15px;
+    position: relative;
+    text-align: center;
+    font-family: 'Mayrean';
+    letter-spacing: 2px;
+   text-decoration: none;
+}
+
+.category-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* The popup box */
+  .category-popup {
+    position: absolute;
+    top: 40px;          /* distance below CATEGORY */
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    border: 1px solid cyan;
+    padding: 10px 10px;
+    border-radius: 5px;
+    display: none;      /* hidden by default */
+
+    text-align: left;
+    width: 150px;
+    z-index: 999;
+    
+  }
+  
+  /* Show popup on hover */
+  .category-wrapper:hover .category-popup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Popup links */
+  .category-popup a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-family: 'Mayrean', sans-serif;
+    font-size: 1em;
+    text-align: center;
+  }
+  
+  /* Hover effect inside popup */
+  .category-popup a:hover {
+    color: cyan;
+    
+  }
+  .card{
+    width: 220px;
+    height: auto;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 255, 255, 0.3);
+  }
+  .card img{
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  .card h2{
+    color: #1a1a1a;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  .card h3{
+    color: #1a1a1a;
+    margin-top: 8px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Add to Cart Button with ripple effect */
+  .add-to-cart-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-top: 15px;
+  }
+  
+  .add-to-cart-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+  
+  .add-to-cart-btn:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .add-to-cart-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+  }
+  
+  .add-to-cart-btn:active {
+    transform: scale(0.98);
+  }
+  
+  .add-to-cart-btn span {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* whole category page layout */
+.category-page {
+    display: flex;
+    min-height: 100vh;
+    background: black;
+    color: white;
+}
+
+/* LEFT SIDEBAR */
+.category-sidebar {
+    width: 250px;
+    padding: 30px 20px;
+    border-right: 1px solid cyan;
+    box-sizing: border-box;
+    background-color: rgba(127, 255, 212, 0.121);
+    position: fixed;
+    /* NEW: Flexbox to vertically center */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 0;
+    top: 0;
+
+    height: 100vh;   /* ensure full height */
+}
+
+
+.sidebar-title {
+    font-family: 'Mayrean', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: cyan;
+    
+}
+
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-link {
+    display: block;
+    padding: 8px 4px;
+    margin-bottom: 4px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-link:hover {
+    background: rgba(0, 255, 255, 0.15);
+    color: cyan;
+}
+
+.sidebar-link.active {
+    background: cyan;
+    color: black;
+    font-weight: 600;
+}
+
+/* RIGHT SIDE MAIN CONTENT */
+.category-main {
+    flex: 1;
+    padding: 40px;
+    box-sizing: border-box;
+    position: relative;
+    margin-left: 250px;
+}
+
+/* You can keep your existing .bags-title and .card styles; just ensure: */
+.bags-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+}
+.bags-title{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.backbutton{
+    
+    top:-30%;
+    position: relative;
+    text-align: center;
+}
+.backbutton a{
+    font-family: 'Mayrean';
+    font-size: 25px;
+    text-decoration: none;
+    color: white;
+    
+    
+}
+
+.backbutton a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;     /* space between text and underline */
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: cyan;
+    transition: width 0.3s ease;
+    width: 25px;
+}
+
+/* hover states */
+.backbutton a:hover {
+    color: cyan;
+    cursor: pointer;
+}
+
+.backbutton a:hover::after {
+    width: 100%;      /* expands left + right */
+}
+.searchbox{
+    position: absolute;
+   right: 50%;
+   transform: translateX(50%);
+   margin-top: -10px;
+   display: flex;
+   flex-direction: column;
+   margin-right: 20px;
+   font-family: 'Mayrean';
+}
+.srch{
+    color: white;
+    background-color:rgba(127, 255, 212, 0.121) ;
+    border:2px solid cyan;
+    border-radius: 5px;
+    width: 250px;
+    height: auto;
+    padding: 5px;
+    top: 15px;
+    position: relative;
+    text-align: center;
+    
+}
+.searchbox label{
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+}
+.srch::placeholder{
+    color: white;
+    padding: 5px;
+    font-family: 'Mayrean'; 
+}
+.logo{
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+.logo h1{
+    color: white;
+    font-size: 30px;
+    font-family: 'Mayrean';
+    letter-spacing: 2px;
+}
+@media screen and (max-width: 1024px){
+.imgdiv h2{
+  font-size: 25px;
+  left: 2px;
+}
+}
+@media screen and (max-width: 768px) {
+
+  /* ---------- GENERAL ---------- */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* ---------- NAVIGATION ---------- */
+  .navigation {
+    justify-content: center;
+    margin: 15px 0;
+    flex-wrap: wrap;
+  }
+
+  .navigation a {
+    font-size: 1rem;
+    padding: 8px;
+    margin-top: -20px;
+  }
+
+  /* ---------- BANNER ---------- */
+  .bannerheading {
+    margin-left: 5%;
+    margin-right: 5%;
+    top: 20px;
+  }
+
+  .bannerheading h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: -30px;
+  }
+
+  .bannerheading p {
+    font-size: 0.85rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ---------- SLIDER ---------- */
+  .slider-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .slide-content {
+    min-height: 220px;
+  }
+
+  .slide-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .slide-img {
+    height: 200px;
+  }
+
+  /* ---------- HOME BUTTON ---------- */
+  .buttonhome1 {
+    margin-top: 25px;
+    left:5px
+  }
+
+  .homebutton {
+    font-size: 16px;
+    padding: 8px 14px;
+  }
+
+  /* ---------- IMAGE GRID ---------- */
+  .imgdiv {
+    position: relative;
+    margin-top: 30px;
+  }
+
+  .imgdiv h2 {
+    font-size: 22px;
+    right: 0;
+    top: 0;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+  
+
+  .prdimg {
+    height: 100px;
+    margin: 10px;
+  }
+
+  /* ---------- LOGIN ICON ---------- */
+  .cartlogin {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .login {
+    height: 36px;
+  }
+
+  /* ---------- CATEGORY POPUP ---------- */
+  .category-popup {
+    width: 90%;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* ---------- CATEGORY PAGE ---------- */
+  .category-page {
+    flex-direction: column;
+  }
+
+  .category-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid cyan;
+    padding: 20px;
+  }
+
+  .category-main {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  /* ---------- SIDEBAR LINKS ---------- */
+  .sidebar-link {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* ---------- CARDS ---------- */
+  .card {
+    width: 100%;
+    max-width: 280px;
+    margin: auto;
+  }
+
+  .card img {
+    height: 130px;
+  }
+
+  /* ---------- GRID ---------- */
+  .bags-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+  }
+
+  /* ---------- SEARCH ---------- */
+  .searchbox {
+    position: relative;
+    right: auto;
+    transform: none;
+    top: -10px;
+    margin: 0px auto;
+    align-items: center;
+  }
+
+  .srch {
+    width: 220px;
+  }
+
+  /* ---------- LOGO ---------- */
+  .logo {
+    position: relative;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  .logo h1 {
+    font-size: 22px;
+    
+  }
+}
+/* Wrapper */
+.login-wrapper {
+  min-height: 100vh;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Login card */
+.login-card {
+  width: 420px;
+  text-align: center;
+  z-index: 10;
+}
+
+/* Title */
+.login-title {
+  font-size: 3rem;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: 'Mayrean';
+}
+
+/* Labels */
+.login-label {
+  display: block;
+  color: #a1a1aa;
+  text-align: left;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  font-family: 'Mayrean';
+}
+
+/* Inputs */
+.login-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #e5e7eb;
+  padding: 8px 4px;
+  color: white;
+  outline: none;
+}
+
+/* Button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  background-color:black;
+  border: 2px solid cyan;
+  color: white;
+  border-radius: 10px;
+  font-family: 'Mayrean';
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.login-btn:hover {
+  background-color: cyan;
+  color: black;
+}
+
+/* Decorative shapes */
+.circle-left {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: cyan;
+  border-radius: 50%;
+  left: -200px;
+  top: 100px;
+}
+
+.dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: black;
+  border-radius: 50%;
+  left: 180px;
+  top: 220px;
+}
+
+.lines-top-right {
+  position: absolute;
+  border-radius: 50%;
+  top: -130px;
+  right: -100px;
+  width: 450px;
+  height: 400px;
+  background: repeating-linear-gradient(
+    45deg,
+    cyan,
+    cyan 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+.triangles-bottom-right {
+  position: absolute;
+  bottom: 40px;
+  right: 0px;
+  width: 100px;
+  height: 100px;
+  border-left: 220px solid transparent;
+  border-top: 220px solid cyan;
+}
+
+/* Modern Internal Pages Styling */
+.modern-page-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 40px 20px;
+}
+
+.modern-card-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modern-input-group {
+  margin-bottom: 24px;
+}
+
+.modern-input-label {
+  display: block;
+  color: #4a5568;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.modern-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.3s ease;
+  background: #f7fafc;
+}
+
+.modern-input:focus {
+  outline: none;
+  border-color: #4A90E2;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.modern-btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.modern-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(74, 144, 226, 0.4);
+}
+
+.modern-btn-secondary {
+  width: 100%;
+  background: white;
+  color: #4A90E2;
+  border: 2px solid #4A90E2;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modern-btn-secondary:hover {
+  background: #f0f7ff;
+}
+
+/* Search Bar Styling */
+.search-container {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 20px 14px 50px;
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  font-size: 15px;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: cyan;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4A90E2;
+  font-size: 18px;
+}
+
+.search-input::placeholder {
+  color: #a0aec0;
+}
+
+/* Profile Card Styles */
+.profile-info-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.profile-field {
+  padding: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-field:last-child {
+  border-bottom: none;
+}
+
+.profile-icon {
+  color: #4A90E2;
+  font-size: 20px;
+}
+
+.profile-label {
+  color: #718096;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.profile-value {
+  color: #1a202c;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* Cart Item Card */
+.cart-item-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.cart-item-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Quantity Controls */
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f7fafc;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.qty-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: white;
+  color: #4A90E2;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qty-btn:hover {
+  background: #4A90E2;
+  color: white;
+  transform: scale(1.1);
+}
+
+.qty-value {
+  min-width: 30px;
+  text-align: center;
+  font-weight: 600;
+  color: #1a202c;
+}
+
+/* Updated Cart Page Styling */
+.cart-page-header {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(0, 20, 20, 0.8);
+}
+
+.cart-page-title {
+  color: cyan;
+  font-size: 48px;
+  font-family: 'Mayrean';
+  letter-spacing: 8px;
+  margin-bottom: 0;
+}
+
+.cart-items-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.cart-item-modern {
+  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.1);
+  flex-wrap: wrap;
+}
+
+.cart-item-image-container {
+  flex-shrink: 0;
+}
+
+.cart-item-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid rgba(0, 255, 255, 0.3);
+}
+
+.cart-item-details {
+  flex: 1;
+  min-width: 200px;
+}
+
+.cart-item-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: 1px;
+}
+
+.cart-item-price {
+  font-size: 20px;
+  font-weight: 600;
+  color: #4A90E2;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.cart-qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 2px solid rgba(0, 255, 255, 0.3);
+}
+
+.cart-qty-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: cyan;
+  color: black;
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-qty-btn:hover {
+  background: #00e5e5;
+  transform: scale(1.1);
+}
+
+.cart-qty-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  min-width: 40px;
+  text-align: center;
+}
+
+.cart-item-total {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1a1a;
+  min-width: 120px;
+  text-align: right;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.cart-remove-btn {
+  color: #e53e3e;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.cart-remove-btn:hover {
+  background: rgba(229, 62, 62, 0.1);
+  text-decoration: underline;
+}
+
+.cart-summary {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.cart-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  border-top: 3px solid rgba(0, 255, 255, 0.5);
+}
+
+.cart-total-label {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  font-family: 'Mayrean';
+  letter-spacing: 3px;
+}
+
+.cart-total-amount {
+  font-size: 36px;
+  font-weight: 700;
+  color: cyan;
+  font-family: 'Mayrean';
+  letter-spacing: 2px;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.cart-btn {
+  padding: 16px 40px;
+  border-radius: 12px;
+  font-family: 'Mayrean';
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.cart-btn-secondary {
+  background: transparent;
+  color: cyan;
+  border: 3px solid cyan;
+}
+
+.cart-btn-secondary:hover {
+  background: rgba(0, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.cart-btn-primary {
+  background: cyan;
+  color: black;
+  border: 3px solid cyan;
+}
+
+.cart-btn-primary:hover {
+  background: #00e5e5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 255, 255, 0.4);
+}
+
+.cart-empty-state {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.cart-empty-text {
+  color: white;
+  font-size: 24px;
+  font-family: 'Mayrean';
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+/* Profile Page Updates */
+.profile-page-header {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(0, 20, 20, 0.8);
+  margin-bottom: 40px;
+}
+
+.profile-page-title {
+  color: cyan;
+  font-size: 48px;
+  font-family: 'Mayrean';
+  letter-spacing: 8px;
+}
+
+.profile-card-teal {
+  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.2);
+}
+
+.profile-section-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: 1px;
+}
+
+.profile-field-modern {
+  padding: 20px 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.profile-field-modern:last-child {
+  border-bottom: none;
+}
+
+.profile-field-label-modern {
+  font-size: 12px;
+  font-weight: 700;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.profile-field-value-modern {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+}
+
+.profile-btn-edit {
+  padding: 12px 32px;
+  border-radius: 10px;
+  border: 3px solid #4A90E2;
+  background: transparent;
+  color: #4A90E2;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.profile-btn-edit:hover {
+  background: #4A90E2;
+  color: white;
+}
+
+.profile-quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.profile-link-card {
+  background: rgba(0, 255, 255, 0.1);
+  border: 2px solid cyan;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.profile-link-card:hover {
+  background: rgba(0, 255, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+.profile-link-title {
+  color: cyan;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-family: 'Mayrean';
+  letter-spacing: 2px;
+}
+
+.profile-link-subtitle {
+  color: #b0b0b0;
+  font-size: 16px;
+  font-family: 'Segoe UI';
+  letter-spacing: 1px;
+}
+
+/* Category Page Header */
+.category-title-centered {
+  text-align: center;
+  color: cyan;
+  font-size: 48px;
+  font-family: 'Mayrean';
+  letter-spacing: 6px;
+  margin-bottom: 40px;
+}
+
+/* Search Input Updates */
+.search-input-modern {
+  width: 100%;
+  padding: 16px 20px 16px 55px;
+  border: 3px solid cyan;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  font-size: 16px;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.3s ease;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.search-input-modern::placeholder {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.search-input-modern:focus {
+  outline: none;
+  border-color: #00e5e5;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+  background: white;
+}
+
+.home-button-top {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  padding: 12px 32px;
+  border: 3px solid cyan;
+  border-radius: 10px;
+  background: transparent;
+  color: cyan;
+  font-family: 'Mayrean';
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.home-button-top:hover {
+  background: cyan;
+  color: black;
+  transform: translateY(-2px);
+}
+
+/* Quantity Controls */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+  padding: 8px;
+  background: rgba(0, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.qty-btn {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #4A90E2;
+  background: white;
+  color: #4A90E2;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.qty-btn:hover {
+  background: #4A90E2;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.qty-btn:active {
+  transform: scale(0.95);
+}
+
+.qty-display {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  min-width: 30px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Floating Cart Button */
+.floating-cart-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 65px;
+  height: 65px;
+  background: linear-gradient(135deg, cyan 0%, #00b8b8 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  text-decoration: none;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.floating-cart-btn:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 12px 35px rgba(0, 255, 255, 0.6);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff3366;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Segoe UI', sans-serif;
+  border: 2px solid white;
+}
+
+/* Updated Login Page Styles */
+.login-page-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+}
+
+.login-home-btn {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  padding: 12px 32px;
+  border: 3px solid cyan;
+  border-radius: 10px;
+  background: transparent;
+  color: cyan;
+  font-family: 'Mayrean';
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.login-home-btn:hover {
+  background: cyan;
+  color: black;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.4);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
+  border: 2px solid rgba(0, 255, 255, 0.3);
+}
+
+.login-tabs {
+  display: flex;
+  border-bottom: 3px solid rgba(0, 255, 255, 0.2);
+  margin-bottom: 30px;
+}
+
+.login-tab {
+  flex: 1;
+  padding: 15px;
+  background: transparent;
+  border: none;
+  color: #718096;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -3px;
+}
+
+.login-tab.active {
+  color: cyan;
+  border-bottom-color: cyan;
+}
+
+.login-tab:hover {
+  color: #4A90E2;
+}
+
+.login-input-group {
+  margin-bottom: 25px;
+}
+
+.login-label {
+  display: block;
+  color: #4a5568;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.login-input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a1a1a;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: cyan;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+  background: white;
+}
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  align-items: center;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  color: #4a5568;
+}
+
+.forgot-password {
+  color: #4A90E2;
+  font-size: 14px;
+  font-family: 'Segoe UI', sans-serif;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: cyan;
+}
+
+.login-error {
+  color: #e53e3e;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  background: rgba(229, 62, 62, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(229, 62, 62, 0.3);
+}
+
+.login-submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, cyan 0%, #00b8b8 100%);
+  color: black;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+}
+
+.login-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 255, 255, 0.5);
+}
+
+.login-submit-btn:active {
+  transform: translateY(0);
+}
+
+.login-divider {
+  text-align: center;
+  margin: 25px 0;
+  color: #a0aec0;
+  font-size: 14px;
+  font-family: 'Segoe UI', sans-serif;
+}
+.checkout-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+  padding: 40px 24px;
+  color: white;
+}
+
+/* Checkout Header */
+.checkout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 48px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.checkout-main-title {
+  font-size: 2.5rem;
+  font-family: 'Mayrean', sans-serif;
+  letter-spacing: 8px;
+  color: cyan;
+  font-weight: 300;
+}
+
+.back-to-cart-btn {
+  padding: 12px 32px;
+  border: 3px solid cyan;
+  border-radius: 10px;
+  background: transparent;
+  color: cyan;
+  font-family: 'Mayrean', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.back-to-cart-btn:hover {
+  background: cyan;
+  color: black;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.4);
+}
+
+/* Grid Layout */
+.checkout-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 1024px) {
+  .checkout-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* Left Column */
+.checkout-left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Section Card */
+.checkout-section {
+  background: rgba(0, 255, 255, 0.05);
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.checkout-section:hover {
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 12px 48px rgba(0, 255, 255, 0.2);
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(0, 255, 255, 0.2);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-family: 'Mayrean', sans-serif;
+  color: cyan;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+.add-new-link {
+  color: cyan;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.add-new-link:hover {
+  text-decoration: underline;
+  color: #00e5e5;
+}
+
+/* Address Cards */
+.address-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.address-card {
+  padding: 20px;
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.address-card:hover {
+  border-color: rgba(0, 255, 255, 0.6);
+  background: rgba(0, 255, 255, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.2);
+}
+
+.address-card.selected {
+  border-color: cyan;
+  background: rgba(0, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.address-name {
+  font-family: 'Mayrean', sans-serif;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.address-details {
+  font-family: 'Segoe UI', sans-serif;
+  color: #a0aec0;
+  font-size: 14px;
+  margin-bottom: 4px;
+  line-height: 1.5;
+}
+
+.address-phone {
+  font-family: 'Segoe UI', sans-serif;
+  color: #a0aec0;
+  font-size: 14px;
+}
+
+/* Payment Cards */
+.payment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.payment-card {
+  padding: 20px;
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.payment-card:hover {
+  border-color: rgba(0, 255, 255, 0.6);
+  background: rgba(0, 255, 255, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.2);
+}
+
+.payment-card.selected {
+  border-color: cyan;
+  background: rgba(0, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.payment-card-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.card-icon {
+  width: 50px;
+  height: 35px;
+  background: linear-gradient(135deg, cyan 0%, #00b8b8 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+}
+
+.card-info {
+  flex: 1;
+}
+
+.card-number {
+  font-family: 'Mayrean', sans-serif;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.card-holder {
+  font-family: 'Segoe UI', sans-serif;
+  color: #a0aec0;
+  font-size: 14px;
+}
+
+/* Empty Message */
+.empty-message {
+  font-family: 'Segoe UI', sans-serif;
+  color: #a0aec0;
+  font-size: 15px;
+}
+
+.inline-link {
+  color: cyan;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.inline-link:hover {
+  text-decoration: underline;
+  color: #00e5e5;
+}
+
+/* Right Column - Order Summary */
+.checkout-right-column {
+  position: relative;
+}
+
+.order-summary {
+  background: rgba(0, 255, 255, 0.05);
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  border-radius: 16px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 255, 255, 0.1);
+  position: sticky;
+  top: 32px;
+}
+
+.summary-title {
+  font-size: 1.5rem;
+  font-family: 'Mayrean', sans-serif;
+  color: cyan;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(0, 255, 255, 0.2);
+  font-weight: 400;
+}
+
+/* Summary Items */
+.summary-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid rgba(0, 255, 255, 0.2);
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+
+.item-name {
+  font-family: 'Segoe UI', sans-serif;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.item-price {
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  font-weight: 700;
+}
+
+/* Calculations */
+.summary-calculations {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.calc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calc-label {
+  font-family: 'Segoe UI', sans-serif;
+  color: #a0aec0;
+  font-size: 15px;
+}
+
+.calc-value {
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.total-row {
+  margin-top: 12px;
+  padding-top: 16px;
+  border-top: 2px solid rgba(0, 255, 255, 0.3);
+}
+
+.calc-label-total {
+  font-family: 'Mayrean', sans-serif;
+  color: cyan;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.calc-value-total {
+  font-family: 'Mayrean', sans-serif;
+  color: cyan;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Place Order Button */
+.place-order-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, cyan 0%, #00b8b8 100%);
+  color: black;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Mayrean', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.4);
+}
+
+.place-order-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.6);
+}
+
+.place-order-btn:active {
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   SUCCESS PAGE STYLES
+   ============================================ */
+
+.checkout-success-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.checkout-success-content {
+  text-align: center;
+  max-width: 500px;
+}
+
+.success-icon-wrapper {
+  margin-bottom: 48px;
+}
+
+.success-icon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 32px;
+  background: linear-gradient(135deg, cyan 0%, #00b8b8 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 40px rgba(0, 255, 255, 0.5);
+  animation: successPulse 2s ease-in-out infinite;
+}
+
+.checkmark {
+  font-size: 4rem;
+  color: black;
+  font-weight: 700;
+}
+
+@keyframes successPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 40px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 50px rgba(0, 255, 255, 0.7);
+  }
+}
+
+.success-title {
+  font-size: 2.5rem;
+  font-family: 'Mayrean', sans-serif;
+  color: cyan;
+  letter-spacing: 4px;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.success-message {
+  font-family: 'Segoe UI', sans-serif;
+  color: #a0aec0;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+.continue-shopping-btn {
+  display: inline-block;
+  padding: 16px 48px;
+  background: linear-gradient(135deg, cyan 0%, #00b8b8 100%);
+  color: black;
+  border-radius: 12px;
+  font-family: 'Mayrean', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.4);
+}
+
+.continue-shopping-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .checkout-main-title {
+    font-size: 2rem;
+    letter-spacing: 4px;
+  }
+
+  .checkout-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .checkout-section,
+  .order-summary {
+    padding: 24px;
+  }
+
+  .section-title,
+  .summary-title {
+    font-size: 1.25rem;
+  }
+
+  .success-title {
+    font-size: 2rem;
+  }
+
+  .success-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .checkmark {
+    font-size: 3rem;
+  }
+}
